@@ -1,1 +1,5 @@
-<h2> hello </h2>
+<h2> hello <%= current_user.name %></h2>
+
+<br /> <h3>Your current listings: </h3>
+
+<%= link_to "Create new listing", new_listing_path(current_user) %>

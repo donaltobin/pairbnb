@@ -1,0 +1,9 @@
+<h2>Listing created successfully! Please make sure your listing's detials below are correct.</h2>
+
+<%= link_to 'Edit listing', edit_listing_path %>
+
+<h3><%= @listing.title %></h3><br />
+<h4> Property description: </h4>
+<h5><%= @listing.description %></h5>
+
+<%= link_to 'Remove listing', listing_path, method: :delete, data: { confirm: "Click OK to remove listing"} %>

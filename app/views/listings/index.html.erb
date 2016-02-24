@@ -1,1 +1,10 @@
+<%= link_to "Create new listing", new_listing_path(current_user) %>   
+<div class="container">
 <p>All listings: </p>
+
+<% @listings.each do |listing| %>
+<%= link_to listing.title, listing %><br />
+Property description: <br />
+<% listing.description %> <br />
+<% end %>
+</div>

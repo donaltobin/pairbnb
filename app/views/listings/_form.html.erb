@@ -1,0 +1,15 @@
+<%= form_for @listing do |f| %>
+
+	Listing title: <%= f.text_field :title %><br />
+	Description: <%= f.text_area :description %><br />
+	Street Address: <%= f.text_field :street_address %> <br />
+	City: <%= f.text_field :city %><br />
+	Country: <%= f.text_field :country %><br />
+	Property type: <%= f.text_field :property_type %><br />
+	Number of guests: <%= f.text_field :number_of_guests %><br />
+	Number of bedrooms: <%= f.text_field :number_of_bedrooms %><br />
+	Number of beds: <%= f.text_field :number_of_beds %><br />
+
+	<%= f.submit %>
+
+<% end %>
