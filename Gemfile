@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+#gon
+gem 'gon'
 #Facebook OmniAuth
 gem 'omniauth-facebook'
 # User Figaro
@@ -19,7 +21,8 @@ gem 'coffee-rails', '~> 4.1.0'
 
 #Use Clearance
 gem 'clearance'
-
+#briantree
+gem 'braintree'
 #minimagick
 gem "mini_magick"
 #carrierwave

@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>CareBnB</title>
+  <%= include_gon %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
@@ -9,6 +10,7 @@
 <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
  <%= csrf_meta_tag %>
+ <script src="https://js.braintreegateway.com/v2/braintree.js"></script>
 </head>
 
 <body>

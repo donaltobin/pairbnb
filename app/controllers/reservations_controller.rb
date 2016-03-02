@@ -4,22 +4,26 @@ class ReservationsController < ApplicationController
 	def new
 		find_listing
 		@reservation = Reservation.new
+		gon.client_token = generate_client_token
 
 		daterange = params[:daterange]
 		daterange.gsub!(/(\d{2})\/(\d{2})\/(\d{4}).-.(\d{2})\/(\d{2})\/(\d{4})/,'\3-\1-\2 \6-\4-\5')
 		reservdates = daterange.split(" ")
 		@check_in = reservdates[0]
 		@check_out = reservdates[1]
+		@total_cost = total_amount_due
 	end
 
 	def create
 		find_listing
 		current_user
+		@total_cost = total_amount_due
 		@reservation = @listing.reservations.new(reservation_params)
 		
 		if @reservation.save
 			flash.now[:success] = "Your reservation has been successful!"
-			redirect_to listing_reservation_path(@listing, @reservation)
+			redirect_to root_path
+			# redirect_to listing_reservation_path(@listing, @reservation)
 		else 
 			flash.now[:error] = "Your reservation could not be processed at this time. Please try again and make sure all your information is correct."
 			redirect_to @listing
@@ -65,4 +69,17 @@ class ReservationsController < ApplicationController
 	def find_listing
 		@listing = Listing.find(params[:listing_id])
 	end
+
+	def total_amount_due
+
+		nights = 8
+		# nights = (@check_out.to_date - @check_in.to_date).to_i
+		total_cost = @listing.price * nights
+	end
+
+	def generate_client_token
+  		Braintree::ClientToken.generate
+	end
+
+
 end

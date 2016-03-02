@@ -1,12 +1,27 @@
-<div class="container">
-  <h2>Book your stay in <%=@listing.title%></h2>
+<script>
+braintree.setup(gon.client_token, "dropin", {
+  container: "payment-form"
+});
+</script>
+<div class="form-container radius-box glassy-bg small-10 small-centered medium-8 large-6 columns">
+  <h2>Confirm your stay in <%=@listing.title%></h2>
 
-  <h4> Payment info</h4>
+  <h4> Payment information</h4>
 
 
   <%= form_for([@listing, @reservation]) do |f| %>
+  
+  Amount due: $<%= @total_cost %><br />
+
+  <p>Please enter your payment details:</p>
+    <div id="dropin"></div>
+    
+    <%= f.hidden_field :listing_id, value: @listing.id %>
+    <%= f.hidden_field :amount, value: @total_cost %>
     <%= f.hidden_field :check_in, value: @check_in %>
     <%= f.hidden_field :check_out, value: @check_out %>
     <%= f.submit 'Confirm booking now', class: "btn btn-success"%>
   <% end %>
 </div>
+
+
