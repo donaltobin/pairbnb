@@ -14,6 +14,7 @@ class ListingsController < ApplicationController
 	end
 
 	def create
+		byebug
 		@listing = current_user.listings.new(listing_params)
 
 		if @listing.save
@@ -33,18 +34,16 @@ class ListingsController < ApplicationController
 
 	def update
 		if @listing.update(listing_params)
-			byebug
 			redirect_to @listing, notice: "Listing was successfully updated!"
 		else 
 			redirect_to 'edit'
 		end
 	end
 
-
 	private
 
 	def listing_params
-		params.require(:listing).permit(:title, :street_address, :city, :country, :property_type, :number_of_guests, :number_of_bedrooms, :number_of_beds, :description)
+		params.require(:listing).permit(:title, :street_address, :city, :country, :property_type, :number_of_guests, :number_of_bedrooms, :number_of_beds, :description, {avatars: []}, :price, :start, :end)
 	end
 
 	def find_listing

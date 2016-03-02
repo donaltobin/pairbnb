@@ -1,9 +1,45 @@
-<h2>Listing created successfully! Please make sure your listing's detials below are correct.</h2>
-
-<%= link_to 'Edit listing', edit_listing_path %>
-
-<h3><%= @listing.title %></h3><br />
+<div class="container">
+	
+<h2><%= @listing.title %></h2><br />
+<%= render 'images' %>
 <h4> Property description: </h4>
-<h5><%= @listing.description %></h5>
+<h5><%= @listing.description %></h5><br />
 
-<%= link_to 'Remove listing', listing_path, method: :delete, data: { confirm: "Click OK to remove listing"} %>
+<h4>  Address: </h4>
+<h5><%= @listing.street_address %>, <%= @listing.city %>, <%= @listing.country %></h5><br />
+
+<h4> Property type: </h4>
+<h5><%= @listing.property_type %></h5><br />
+
+<h4> Max number of guests: </h4>
+<h5><%= @listing.number_of_guests %></h5><br />
+
+<h4> Number of bedrooms: </h4>
+<h5><%= @listing.number_of_bedrooms %></h5><br />
+
+<h4> Number of beds: </h4>
+<h5><%= @listing.number_of_beds %></h5><br />
+
+<h4> Availability: </h4>
+<h5><%= @listing.start %> - <%= @listing.end %></h5><br />
+
+<h4> Price per night: </h4>
+<h5>$<%= @listing.price %></h5><br />
+
+<h4>Booking dates:</h4>
+
+<%= form_tag(new_listing_reservation_path(@listing), method: "get") do %>
+<input type="hidden" name="listing_id" value="<%= @listing.id %>">
+<input type="text" name="daterange" >
+<button type="submit" class="btn btn-success">Book now</button>
+<% end %>
+
+<% if signed_in? && (current_user.id == @listing.user.id) %>
+   <div class="pull-right">
+
+<%= link_to 'Edit listing', edit_listing_path, class: "btn btn-success" %><br />
+<%= link_to 'Remove listing', listing_path, method: :delete, data: { confirm: "Click OK to remove listing"}, class: "btn btn-danger" %>
+</div>
+<br />
+<% end %>
+</div>

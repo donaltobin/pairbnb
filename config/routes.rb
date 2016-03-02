@@ -1,22 +1,26 @@
 Rails.application.routes.draw do
-  resources :passwords, controller: "clearance/passwords", only: [:create, :new]
-  resource :session, controller: "clearance/sessions", only: [:create]
+  resources :passwords, controller: "passwords", only: [:create, :new]
+  resource :session, controller: "sessions", only: [:create]
   resources :users, only: [:show, :edit, :update, :destroy]
-  resources :users, controller: "clearance/users", only: [:create] do
+  resources :users, controller: "users", only: [:create] do
     resource :password,
-      controller: "clearance/passwords",
+      controller: "passwords",
       only: [:create, :edit, :update]
   end
 
-  resources :users
-  resources :listings
+resources :listings do 
+  resources :reservations
+end
+
+ resources :users
+ 
 
 
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
 
-  get "/sign_in" => "clearance/sessions#new", as: "sign_in"
-  delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
-  get "/sign_up" => "clearance/users#new", as: "sign_up"
+  get "/sign_in" => "sessions#new", as: "sign_in"
+  delete "/sign_out" => "sessions#destroy", as: "sign_out"
+  get "/sign_up" => "users#new", as: "sign_up"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 # resources :users
@@ -24,9 +28,6 @@ Rails.application.routes.draw do
   root 'listings#index'
 
   # get "/user" => "users#show", as: "user"
-
- 
-
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

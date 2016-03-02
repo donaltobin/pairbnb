@@ -1,10 +1,63 @@
-<%= link_to "Create new listing", new_listing_path(current_user) %>   
-<div class="container">
-<p>All listings: </p>
-
-<% @listings.each do |listing| %>
-<%= link_to listing.title, listing %><br />
-Property description: <br />
-<% listing.description %> <br />
-<% end %>
+<!-- <div class="main_img wrapper">
+	<div class="sol-sm-6">
+   <img src="assets/toronto.jpg" >
+    </div>
+</div> -->
+<div id='search_div'>
+	<div id='search_bar'>
+	<form class="search_bar" role="search">
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Search">
+      </div>
+      <div class="search-btn">
+      <button type="submit" class="btn btn-default">Search</button>
+    </div>
+   </form>
+ </div>
 </div>
+
+
+    <div class="container">
+
+        <div class="row">
+					<br />
+					<%= @listing.each do |listing| %>
+					<%= listing.avatar %>
+					<% end %>
+            <div class="col-lg-4 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+        </div>
+
+        <hr>
+
+    </div>
+
+

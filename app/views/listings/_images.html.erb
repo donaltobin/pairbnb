@@ -1,0 +1,7 @@
+<%= image_tag @listing.avatars[0].main.url%>
+
+<br><br>
+
+<% @listing.avatars.each do |pic| %>
+  <img  src="<%=pic.thumb.url%>">
+<%end%>

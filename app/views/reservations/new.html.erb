@@ -1,0 +1,12 @@
+<div class="container">
+  <h2>Book your stay in <%=@listing.title%></h2>
+
+  <h4> Payment info</h4>
+
+
+  <%= form_for([@listing, @reservation]) do |f| %>
+    <%= f.hidden_field :check_in, value: @check_in %>
+    <%= f.hidden_field :check_out, value: @check_out %>
+    <%= f.submit 'Confirm booking now', class: "btn btn-success"%>
+  <% end %>
+</div>

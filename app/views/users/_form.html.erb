@@ -1,9 +1,21 @@
-<div class="text-field">
-  <%= form.label :email %>
-  <%= form.text_field :email, type: 'email' %>
-</div>
+<%= form_for @user, :html => {:multipart => true} do |form| %>
 
-<div class="password-field">
-  <%= form.label :password %>
-  <%= form.password_field :password %>
-</div>
+	<div class="text-field">
+	  <%= form.label :email %>
+	  <%= form.text_field :email, type: 'email' %>
+	</div>
+
+	<div class="password-field">
+	  <%= form.label :password %>
+	  <%= form.password_field :password %>
+	</div>
+	<p>
+		<%= form.file_field :avatar %>
+	</p>
+
+	<div class="submit-field">
+      <%= form.submit %>
+    </div>
+<% end %>
+
+

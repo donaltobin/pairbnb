@@ -1,5 +1,13 @@
-<h2> hello <%= current_user.name %></h2>
+<div class="container">
+	
+<h2> Profile</h2>
+
+<div class="painting">
+	<%= image_tag current_user.avatar.thumb.url %>
+</div>
 
 <br /> <h3>Your current listings: </h3>
 
-<%= link_to "Create new listing", new_listing_path(current_user) %>
+<br /> <h3>Your current listings: </h3>
+
+</div>

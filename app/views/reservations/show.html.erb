@@ -1,0 +1,26 @@
+
+<div class="container">
+	<h1>Booking information</h1>
+
+	<div class="booking-details">
+
+		<p><strong>Property:</strong> <%= @reservation.listing.title%> </p>
+		<p><strong>Check-in:</strong> <%= @reservation.check_in%></p>
+		<p><strong>Check-out:</strong> <%= @reservation.check_out%> </p>
+		<p><strong>By:</strong> <%= @reservation.user.name%> </p>
+
+		<p><strong>Total cost:</strong> <%= @reservation.amount%> </p>
+
+		<h3>Contact information</h3>
+
+		<p><strong>Owner name:</strong> <%=@reservation.listing.user.name%> </p>
+		<p><strong>Email:</strong> <%=@reservation.listing.user.email%></p><br>
+
+	</div>
+
+	<p>
+		<%= link_to 'Edit', edit_listing_reservation_path(@listing, @reservation) %> |
+		<%= link_to 'Cancel reservation', listing_reservation_path(@listing, @reservation), method: "delete" %>
+	</p>
+	
+</div>

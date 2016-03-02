@@ -1,0 +1,9 @@
+<%= form_for [@listing, @reservation] do |f| %>
+
+	Check in: <%= f.date_field :check_in %><br />
+	Check out: <%= f.date_field :check_out %><br />
+	Number of guests: <%= f.number_field :guests %> <br />
+	
+	<%= f.submit %>
+
+<% end %>

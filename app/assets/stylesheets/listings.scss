@@ -1,3 +1,32 @@
 // Place all the styles related to the listings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.new_prop_center {
+	margin-right: auto;
+	margin-left: auto;
+	width: 40em;
+	
+}
+
+// .main_img {
+// 	display: block;
+// 	bottom: 0;
+// 	left: 0;
+// 	overflow: hidden;
+// 	position: absolute;
+// 	right: 0;
+// 	top: 50px;
+// }
+
+#search_div {
+	height: 500px;
+	background-image: url('toronto.jpg');
+
+}
+
+#search_bar {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%)
+}

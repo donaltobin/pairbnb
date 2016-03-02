@@ -14,5 +14,11 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require turbolinks
+//= require moment
+//= require daterangepicker
 //= require_tree .
 
+
+$(function() {
+    $('input[name="daterange"]').daterangepicker();
+});
